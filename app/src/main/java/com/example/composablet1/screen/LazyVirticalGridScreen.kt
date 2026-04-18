@@ -34,6 +34,7 @@ import androidx.compose.ui.draw.dropShadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
@@ -46,70 +47,78 @@ import com.example.composablet1.model.cardList
 fun LazyVertcalGridScreen(){
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        topBar = {AppTopBar()}
-    ) {padding ->
-        Text(text = "Title section", fontSize = 24.sp)
-        LazyVerticalGrid(
-//            columns = GridCells.Fixed(2),
-            columns = GridCells.Adaptive(minSize = 120.dp),
-            contentPadding = PaddingValues(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier.fillMaxSize().padding(padding)
-        ) {
-            items(cardList.size){index ->
-                var card = cardList[index]
-                Card(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    shape = RoundedCornerShape(8.dp),
-                    elevation = CardDefaults.cardElevation(6.dp) // shadow/elevation
-                ) {
-                    Box{
-                        Box(
-                            modifier = Modifier
-                                .matchParentSize()
-                                .background(Color.White.copy(alpha = 0.05f))
-                                .blur(16.dp)
-                        )
-                        Column() {
-                            Image(
-                                painter = rememberAsyncImagePainter(card.imageUrl),
-                                contentDescription = "Example image",
-                                modifier = Modifier.fillMaxWidth().height(110.dp).clip(shape = RoundedCornerShape(16.dp,16.dp)),
-                                contentScale = ContentScale.Crop
-                            )
-                            Row(
-                                modifier = Modifier.fillMaxWidth().padding(8.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.SpaceBetween,
-                            ) {
-                                Text(
-                                    text = card.label,
-                                    fontSize = 16.sp,
-                                    color = Color.Black,
-                                    maxLines = 1,
-                                    overflow = TextOverflow.Ellipsis
-                                    ,modifier = Modifier.weight(1f)
-                                )
-                                Icon(
-                                    imageVector = Icons.Filled.FavoriteBorder,
-                                    contentDescription = "",
-                                    modifier = Modifier.size(24.dp),
-                                    tint = Color.Black
-                                )
-                            }
+        topBar = {AppTopBar("LazyVirticalScreen")}
+    ) {_ ->
+        VerticalGridScreen()
+    }
 
+}
+
+@Composable
+fun VerticalGridScreen(){
+    Text(text = "LazyVerticalGrid",
+        fontSize = 24.sp,
+        fontWeight = FontWeight(600),
+        modifier = Modifier
+        .padding(top = 24.dp, start = 16.dp, bottom = 16.dp))
+    LazyVerticalGrid(
+//            columns = GridCells.Fixed(2),
+        columns = GridCells.Adaptive(minSize = 120.dp),
+        contentPadding = PaddingValues(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        modifier = Modifier.fillMaxSize()
+    ) {
+        items(cardList.size){index ->
+            var card = cardList[index]
+            Card(
+                modifier = Modifier
+                    .fillMaxSize(),
+                shape = RoundedCornerShape(8.dp),
+                elevation = CardDefaults.cardElevation(6.dp) // shadow/elevation
+            ) {
+                Box{
+                    Box(
+                        modifier = Modifier
+                            .matchParentSize()
+                            .background(Color.White.copy(alpha = 0.05f))
+                            .blur(16.dp)
+                    )
+                    Column() {
+                        Image(
+                            painter = rememberAsyncImagePainter(card.imageUrl),
+                            contentDescription = "Example image",
+                            modifier = Modifier.fillMaxWidth().height(110.dp).clip(shape = RoundedCornerShape(16.dp,16.dp)),
+                            contentScale = ContentScale.Crop
+                        )
+                        Row(
+                            modifier = Modifier.fillMaxWidth().padding(8.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                        ) {
+                            Text(
+                                text = card.label,
+                                fontSize = 16.sp,
+                                color = Color.Black,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                                ,modifier = Modifier.weight(1f)
+                            )
+                            Icon(
+                                imageVector = Icons.Filled.FavoriteBorder,
+                                contentDescription = "",
+                                modifier = Modifier.size(24.dp),
+                                tint = Color.Black
+                            )
                         }
 
                     }
+
                 }
-//
             }
+//
         }
-
     }
-
 }
 
 

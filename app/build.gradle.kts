@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.composablet1"
-        minSdk = 30
+        minSdk = 29
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -40,7 +40,11 @@ android {
 }
 
 dependencies {
+    implementation("androidx.core:core-splashscreen:1.0.0-beta02")
+    implementation("com.google.android.gms:play-services-base:18.3.0")
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.6.0")
     implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation("androidx.core:core:1.12.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

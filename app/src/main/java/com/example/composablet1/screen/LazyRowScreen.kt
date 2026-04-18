@@ -2,6 +2,7 @@ package com.example.composablet1.screen
 
 import android.R.attr.contentDescription
 import android.graphics.drawable.Icon
+import androidx.annotation.ColorLong
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -25,7 +27,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -45,6 +50,7 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
@@ -60,13 +66,12 @@ import com.example.composablet1.R
 import com.example.composablet1.model.CardModel
 import com.example.composablet1.model.cardList
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun LazyRowScreen(){
     Scaffold(
-        modifier = Modifier.fillMaxSize(),
         containerColor = Color.White,
-        topBar = { AppTopBar() }
+        topBar = { AppTopBar("LazyRowScreen") }
     ) {padding->
         LazyColumn(
             modifier = Modifier.padding(padding)
@@ -79,12 +84,26 @@ fun LazyRowScreen(){
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppTopBar(){
+fun AppTopBar(title: String){
     CenterAlignedTopAppBar(
         title = {
-            Text(
-                text = stringResource(R.string.app_name).uppercase()
-            )
+           Row(
+               modifier = Modifier.fillMaxHeight(),
+               verticalAlignment = Alignment.CenterVertically
+           ) {
+               Image(
+                   painter = painterResource(R.drawable.prasac_icon),
+                   contentDescription = "prasac",
+                   modifier = Modifier.size(30.dp),
+                   colorFilter = ColorFilter.tint(colorResource(R.color.oran)),
+                   contentScale = ContentScale.Crop
+               )
+               Spacer(modifier = Modifier.width(8.dp))
+               Text(
+                   text = title.uppercase(), color = Color.White,
+                   fontSize = 20.sp
+               )
+           }
         },
         navigationIcon = {
             IconButton(
@@ -97,15 +116,37 @@ fun AppTopBar(){
             }
         },
         actions = {
-            IconButton(onClick = {}) {
-                Icon(
-                    imageVector = Icons.Filled.Notifications,
-                    contentDescription = "Action icon"
-                )
+            IconButton(onClick = {},
+                modifier = Modifier.padding(8.dp)
+            ) {
+                BadgedBox(
+                    badge = {
+                        Badge(
+                            modifier = Modifier.clip(shape = CircleShape),
+                            containerColor = Color.Red,
+                            contentColor = Color.White
+                        ) {
+                            Text(
+                                "99+",
+                                fontSize = 8.sp)
+                        }
+                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.Notifications,
+                        contentDescription = "Action icon",
+                        tint = colorResource(R.color.oran)
+
+                    )
+                }
             }
         },
-
-
+        colors = TopAppBarDefaults.largeTopAppBarColors(
+            containerColor = colorResource(R.color.bgAppbar),
+            actionIconContentColor = Color.White,
+            navigationIconContentColor = Color.White,
+            titleContentColor = Color.White
+        )
 
     )
 }
