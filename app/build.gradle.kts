@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation("com.jakewharton.timber:timber:5.0.1")
     implementation("androidx.core:core-splashscreen:1.0.0-beta02")
     implementation("com.google.android.gms:play-services-base:18.3.0")
     implementation("androidx.compose.ui:ui-text-google-fonts:1.6.0")

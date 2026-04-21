@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">wallpaper</string>
+    <string name="notification_text">notifications</string>
+    <string name="aba_notification">ABA\' %1$s</string>
 </resources>

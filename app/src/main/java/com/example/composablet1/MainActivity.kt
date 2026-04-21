@@ -22,15 +22,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
+import com.example.composablet1.component.ChipScreen
 import com.example.composablet1.component.ScreanBadgeBox
 import com.example.composablet1.component.ScreenCarouselEx
 import com.example.composablet1.component.ScreenTopAppbar
+import com.example.composablet1.component.SeggmentScreen
 import com.example.composablet1.screen.BoxScreen
 import com.example.composablet1.screen.LazyVertcalGridScreen
 import com.example.composablet1.screen.ScreenHorizPager
 import com.example.composablet1.screen.ScreenLazyHoriz
 import com.example.composablet1.screen.TestingLayoutPreview
 import com.example.composablet1.ui.theme.ComposableT1Theme
+import com.example.composablet1.abanotification.screen.AbaNotification
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +41,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 //            ScreenHorizPager()
-            ScreenCarouselEx()
+//            ScreenCarouselEx()
+//            ChipScreen()
+//            ScreanBadgeBox()
+//            SeggmentScreen()
+            AbaNotification()
         }
     }
 }
