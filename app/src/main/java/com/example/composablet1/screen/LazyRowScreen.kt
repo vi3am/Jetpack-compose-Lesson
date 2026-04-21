@@ -117,12 +117,10 @@ fun AppTopBar(title: String){
         },
         actions = {
             IconButton(onClick = {},
-                modifier = Modifier.padding(8.dp)
             ) {
                 BadgedBox(
                     badge = {
                         Badge(
-                            modifier = Modifier.clip(shape = CircleShape),
                             containerColor = Color.Red,
                             contentColor = Color.White
                         ) {

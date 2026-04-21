@@ -10,4 +10,12 @@
     <color name="cardBackground">#f7f7f7</color>
     <color name="bgAppbar">#545044</color>
     <color name="oran">#f8b502</color>
+
+
+
+    //==========================================
+    <color name="background">#144b5c</color>
+    <color name="background_tint">#E61D5466</color>
+    <color name="sencondary">#02bac3</color>
+
 </resources>

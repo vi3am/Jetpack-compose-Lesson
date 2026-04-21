@@ -10,16 +10,23 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.AlertDialogDefaults.containerColor
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ButtonElevation
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
+import androidx.compose.material3.FilledIconToggleButton
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -27,6 +34,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.ListItemDefaults.contentColor
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -199,7 +207,12 @@ fun ScreanBadgeBox(){
             Spacer(modifier = Modifier.height(8.dp))
             Row(modifier = Modifier.fillMaxWidth()) {
                 //ElevatedButton
-                ElevatedButton(onClick= {}) {
+                ElevatedButton(
+                    onClick= {},
+                    elevation = ButtonDefaults.elevatedButtonElevation(
+                        defaultElevation = 16.dp
+                    )
+                    ) {
                     Text("Button")
                     Icon(
                         painter = painterResource(R.drawable.baseline_arrow_forward_ios_24),
@@ -214,8 +227,45 @@ fun ScreanBadgeBox(){
                     )
                 }
 
+                //Filled Button
+                Button(onClick = {}) {
+                    Row(
+                        modifier = Modifier.wrapContentSize(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.baseline_arrow_forward_ios_24),
+                            contentDescription = ""
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("Filled Button")
+                    }
+                }
 
+                //ToggleButton
+                var isChecked by remember { mutableStateOf(false) }
+                FilledIconToggleButton(
+                    checked = isChecked,
+                    onCheckedChange = { value ->
+                        isChecked = value
+                    }
+                ) {
+                    if(isChecked){
+                        Icon(
+                            imageVector = Icons.Filled.Check,
+                            contentDescription = ""
+                        )
+                    }
+                }
             }
+
+            OutlinedButton(
+                onClick = {}
+            ) {
+                Text("Cancel")
+            }
+
         }
 
     }
