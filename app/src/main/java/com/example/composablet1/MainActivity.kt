@@ -34,6 +34,7 @@ import com.example.composablet1.screen.ScreenLazyHoriz
 import com.example.composablet1.screen.TestingLayoutPreview
 import com.example.composablet1.ui.theme.ComposableT1Theme
 import com.example.composablet1.abanotification.screen.AbaNotification
+import com.example.composablet1.chipmongbankapp.screen.NotificationScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +46,8 @@ class MainActivity : ComponentActivity() {
 //            ChipScreen()
 //            ScreanBadgeBox()
 //            SeggmentScreen()
-            AbaNotification()
+//            AbaNotification()
+            NotificationScreen()
         }
     }
 }
