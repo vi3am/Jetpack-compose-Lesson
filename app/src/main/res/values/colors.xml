@@ -18,4 +18,10 @@
     <color name="background_tint">#E61D5466</color>
     <color name="sencondary">#02bac3</color>
 
+
+
+    // =========================================
+    <color name="bg_chipmong">#f4f4f4</color>
+    <color name="bg_segment">#e3e3e3</color>
+
 </resources>

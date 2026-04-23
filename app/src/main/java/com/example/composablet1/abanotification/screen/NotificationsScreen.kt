@@ -134,7 +134,6 @@ fun AppTopBarABA(){
                     append(" ")
                     append(stringResource(R.string.notification_text)
                         .replaceFirstChar { it.uppercase() })
-
                 },
             )
         },
@@ -306,5 +305,5 @@ fun MyAlerts(){
 @Preview(showBackground = false)
 @Composable
 fun ScreenPreview(){
-    AbaNotification()
+   MyAlerts()
 }
