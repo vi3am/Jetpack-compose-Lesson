@@ -228,7 +228,7 @@ fun AnnouncementsDisplay(){
 
                 )
                 Box(
-                    modifier = Modifier.fillMaxWidth().height(160.dp)
+                    modifier = Modifier.fillMaxWidth().height(170.dp)
                         .padding(vertical = 14.dp)
                         .clip(shape = RoundedCornerShape(16.dp))
                         .background(color = Color.LightGray.copy(0.4f)),

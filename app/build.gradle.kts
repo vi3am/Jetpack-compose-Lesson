@@ -40,10 +40,23 @@ android {
 }
 
 dependencies {
+    // Retrofit (API calls)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //Compose ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
+    //Network calls
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    //Json convert to kotlib object mapping
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
     implementation("com.jakewharton.timber:timber:5.0.1")
     implementation("androidx.core:core-splashscreen:1.0.0-beta02")
     implementation("com.google.android.gms:play-services-base:18.3.0")
     implementation("androidx.compose.ui:ui-text-google-fonts:1.6.0")
+
+    //Image loading
     implementation("io.coil-kt:coil-compose:2.6.0")
     implementation("androidx.core:core:1.12.0")
     implementation(libs.androidx.core.ktx)
