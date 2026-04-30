@@ -21,7 +21,12 @@ import androidx.compose.ui.unit.sp
 import com.example.composablet1.counter_MVVM.CounterApp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.composablet1.APIcalls.RecipeScreen
+import com.example.composablet1.abanotification.screen.AbaNotification
 import com.example.composablet1.counter_MVVM.CounterViewModel
+import com.example.composablet1.mvvmFirebase.AuthScreen
+import com.example.composablet1.screen.LazyVertcalGridScreen
+import com.example.composablet1.weatherAPI.WeatherScreen
+import com.google.firebase.FirebaseApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +35,9 @@ class MainActivity : ComponentActivity() {
         setContent {
 //        val viewModel: CounterViewModel = viewModel()
 //            CounterApp(viewModel)
-
-            RecipeScreen()
+//            WeatherScreen()
+//            RecipeScreen()
+            AuthScreen()
         }
     }
 }
