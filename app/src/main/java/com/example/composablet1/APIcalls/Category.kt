@@ -1,7 +1,7 @@
 package com.example.composablet1.APIcalls
 
 
-    // 2. Data Models
+// 2. Data Models
 data class Category (
     val idCategory: String,
     val strCategory : String,

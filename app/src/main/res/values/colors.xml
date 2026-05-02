@@ -24,4 +24,7 @@
     <color name="bg_chipmong">#f4f4f4</color>
     <color name="bg_segment">#e3e3e3</color>
 
+    //================================
+    <color name="bgicon">#a6b68a</color>
+    <color name="bgCC">#f7f7f7</color>
 </resources>

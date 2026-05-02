@@ -9,9 +9,11 @@ class CounterRepository{
 
     fun getCounter() = _counter
     fun incrementCounter() {
-        _counter.count++
+        if (_counter.count == 10) _counter.count = 0
+        else _counter.count++
     }
     fun decrementCounter() {
-        _counter.count--
+        if (_counter.count > 0)
+         _counter.count--
     }
 }
