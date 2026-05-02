@@ -23,6 +23,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.composablet1.APIcalls.RecipeScreen
 import com.example.composablet1.abanotification.screen.AbaNotification
 import com.example.composablet1.counter_MVVM.CounterViewModel
+import com.example.composablet1.ecommerce.EcommerceScreen
+import com.example.composablet1.foods.FoodsOrderScreen
 import com.example.composablet1.mvvmFirebase.AuthScreen
 import com.example.composablet1.screen.LazyVertcalGridScreen
 import com.example.composablet1.weatherAPI.WeatherScreen
@@ -33,11 +35,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-//        val viewModel: CounterViewModel = viewModel()
+//            val viewMode: CounterViewModel = viewModel()
 //            CounterApp(viewModel)
 //            WeatherScreen()
 //            RecipeScreen()
-            AuthScreen()
+//            AuthScreen()
+//            CounterApp(viewMode)
+//            FoodsOrderScreen()
+            EcommerceScreen()
+//            FoodsOrderScreen()
         }
     }
 }

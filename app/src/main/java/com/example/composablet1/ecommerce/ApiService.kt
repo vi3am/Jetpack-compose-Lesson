@@ -1,0 +1,17 @@
+package com.example.composablet1.ecommerce
+
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+
+private val retrofit = Retrofit.Builder()
+    .baseUrl("https://fakestoreapi.com/")
+    .addConverterFactory(GsonConverterFactory.create())
+    .build()
+
+val recipeServicez : ApiService = retrofit.create(ApiService::class.java)
+
+interface ApiService{
+    @GET("products")
+    suspend fun getCategoriesz(): List<Categoryz>
+}
