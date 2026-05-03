@@ -1,5 +1,6 @@
 package com.example.composablet1.mvvmFirebase
 
+import android.R.attr.enabled
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
@@ -54,9 +56,12 @@ fun AuthScreen(viewModel: AuthViewModel = viewModel()) {
         )
 
         Spacer(modifier = Modifier.height(16.dp))
+        val navController = rememberNavController()
 
         Button(
-            onClick = { viewModel.login() },
+            onClick = {
+                viewModel.login { navController.navigate("FoodsOrderScreen")}
+            },
             modifier = Modifier.fillMaxWidth(),
             enabled = !isLoading
         ) {
