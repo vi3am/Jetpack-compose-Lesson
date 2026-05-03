@@ -39,63 +39,14 @@ class MainActivity : ComponentActivity() {
 //            CounterApp(viewModel)
 //            WeatherScreen()
 //            RecipeScreen()
-//            AuthScreen()
+            AuthScreen()
 //            CounterApp(viewMode)
+//            EcommerceScreen()
 //            FoodsOrderScreen()
-            EcommerceScreen()
-//            FoodsOrderScreen()
         }
     }
 }
 
 
-
-@Composable
-fun SimpleUI() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "Hello, Jetpack Compose!",
-            fontSize = 24.sp
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(onClick = {
-            println("Button Clicked!")
-        }) {
-            Text("Click Me")
-        }
-    }
-}
-
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Composable
-fun Test(){
-    Column(
-
-    ) {
-        for (i in 1..10){
-            Text(
-                text = "Hello ${i}",
-                modifier = Modifier.fillMaxWidth().padding(16.dp),
-                fontSize = 24.sp
-            )
-        }
-    }
-}
 
 

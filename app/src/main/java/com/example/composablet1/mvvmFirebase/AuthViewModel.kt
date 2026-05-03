@@ -14,7 +14,7 @@ class AuthViewModel : ViewModel() {
     var message by mutableStateOf("")
     var isLoading by mutableStateOf(false)
 
-    fun login() {
+    fun login(onSuccess: () -> Unit) {
 
         if (email.isBlank() || password.isBlank()) {
             message = "Email and Password cannot be empty ❌"
@@ -22,9 +22,16 @@ class AuthViewModel : ViewModel() {
         }
 
         isLoading = true
+
         repo.login(email, password) { success, error ->
             isLoading = false
-            message = if (success) "Login Success ✅" else error ?: "Error"
+
+            if (success) {
+                message = "Login Success ✅"
+                onSuccess()   // 👈 navigate here
+            } else {
+                message = error ?: "Error"
+            }
         }
     }
 
