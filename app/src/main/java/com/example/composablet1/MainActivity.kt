@@ -20,6 +20,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composablet1.counter_MVVM.CounterApp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.composablet1.APIcalls.RecipeScreen
 import com.example.composablet1.abanotification.screen.AbaNotification
 import com.example.composablet1.counter_MVVM.CounterViewModel
@@ -35,18 +38,26 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-//            val viewMode: CounterViewModel = viewModel()
-//            CounterApp(viewModel)
-//            WeatherScreen()
-//            RecipeScreen()
-            AuthScreen()
-//            CounterApp(viewMode)
-//            EcommerceScreen()
-//            FoodsOrderScreen()
+
+//            val navController = rememberNavController()
+//
+//            NavHost(
+//                navController = navController,
+//                startDestination = "login"
+//            ) {
+//
+//                composable("login") {
+//                    AuthScreen(navController = navController)
+//                }
+//
+//                composable("FoodsOrderScreen") {
+//                    FoodsOrderScreen()
+//                }
+//
+//            }
+            EcommerceScreen()
         }
     }
 }
-
-
 
 
