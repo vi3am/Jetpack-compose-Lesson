@@ -26,5 +26,6 @@
 
     //================================
     <color name="bgicon">#a6b68a</color>
-    <color name="bgCC">#f7f7f7</color>
+    <color name="bgCC">#E4E4E6</color>
+    <color name="Elabel">#8b8b8b</color>
 </resources>

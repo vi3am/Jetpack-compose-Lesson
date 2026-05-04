@@ -28,7 +28,7 @@ class AuthViewModel : ViewModel() {
 
             if (success) {
                 message = "Login Success ✅"
-                onSuccess()   // 👈 navigate here
+                onSuccess()   // navigate here
             } else {
                 message = error ?: "Error"
             }

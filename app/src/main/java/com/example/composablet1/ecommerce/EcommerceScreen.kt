@@ -44,6 +44,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -52,6 +53,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
@@ -80,7 +82,8 @@ fun EcommerceScreen() {
         containerColor = colorResource(R.color.bgCC)
     ) { padding ->
         Column(
-            modifier = Modifier.padding(padding)
+            modifier = Modifier
+                .padding(padding)
                 .fillMaxSize()
         ) {
             Column {
@@ -172,6 +175,10 @@ fun EcomTopAppBar(){
                 )
             }
         },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = colorResource(R.color.bgCC),
+
+        )
     )
 }
 @Composable
@@ -200,15 +207,18 @@ fun EcomSearchBar() {
 //        },
         colors = OutlinedTextFieldDefaults.colors(
             unfocusedTextColor = Color.Gray,
-            focusedBorderColor = Color.Gray,
-            unfocusedBorderColor = Color.Gray,
-            disabledBorderColor = Color.Gray
+            focusedBorderColor = Color.Transparent,
+            unfocusedBorderColor = Color.Transparent,
+            focusedContainerColor = Color.White,
+            unfocusedContainerColor = Color.White,
+
+
         ),
 
         singleLine = true,
-        shape = RoundedCornerShape(16.dp),
         modifier = Modifier
             .width(310.dp)
+            .shadow(1.dp, shape = RoundedCornerShape(15.dp))
     )
 }
 @Composable
@@ -217,7 +227,9 @@ fun AssistChipEcommerce(categoryz: List<Categoryz>){
     var selectedCategory by remember { mutableStateOf<String?>(null) }
     var selectedIndex by remember { mutableStateOf(0) }
     LazyRow(
-            modifier = Modifier.padding(vertical = 8.dp).height(50.dp),
+            modifier = Modifier
+                .padding(vertical = 8.dp)
+                .height(50.dp),
             contentPadding = PaddingValues(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
@@ -242,7 +254,9 @@ fun AssistChipItem(
 ){
 
     AssistChip(
-        modifier = Modifier.fillMaxHeight().padding(top = 8.dp),
+        modifier = Modifier
+            .fillMaxHeight()
+            .padding(top = 8.dp),
         onClick = onClick,
         label = {
             Text(
@@ -268,7 +282,7 @@ fun AssistChipItem(
             labelColor = if (isSelected)
                 colorResource(R.color.white)
             else
-                colorResource(R.color.black)
+                colorResource(R.color.Elabel)
         ),
         shape = RoundedCornerShape(40)
 
@@ -280,7 +294,9 @@ fun AssistChipItem(
 @Composable
 fun GridContain(categoriesZ: List<Categoryz>){
     LazyVerticalGrid(
-        modifier = Modifier.fillMaxSize().padding(top = 16.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 16.dp),
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(horizontal = 8.dp)
     ) {
@@ -295,7 +311,8 @@ fun GridContain(categoriesZ: List<Categoryz>){
 fun GridItem(categoryz: Categoryz){
     var isClicked by remember { mutableStateOf(false) }
     Card(
-        modifier = Modifier.width(180.dp)
+        modifier = Modifier
+            .width(180.dp)
             .wrapContentHeight()
             .padding(8.dp),
         colors = CardDefaults.cardColors(
@@ -309,9 +326,10 @@ fun GridItem(categoryz: Categoryz){
                 Image(
                     painter = rememberAsyncImagePainter(categoryz.imageUrl),
                     contentDescription = null,
-                    modifier = Modifier.fillMaxWidth()
-                        .background(color = Color.Transparent)
-                        .aspectRatio(1f),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(color = Color.White)
+                        .aspectRatio(1.05f).padding(8.dp),
                     contentScale = ContentScale.Inside
                 )
                IconButton(
@@ -324,16 +342,20 @@ fun GridItem(categoryz: Categoryz){
                        imageVector =if(!isClicked) Icons.Default.FavoriteBorder else Icons.Default.Favorite ,
                        contentDescription = null,
                        tint = if(!isClicked) Color.Black.copy(0.8f) else Color.Red.copy(0.8f) ,
-                       modifier = Modifier.padding(8.dp)
+                       modifier = Modifier
+                           .padding(8.dp)
                            .size(32.dp)
                            .clip(shape = RoundedCornerShape(35))
                            .background(
-                               color = Color.White.copy(0.9f))
+                               color = Color.White.copy(0.9f)
+                           )
                    )
                }
             }
             Column(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.Start
             ) {

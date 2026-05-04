@@ -17,16 +17,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
-fun AuthScreen(viewModel: AuthViewModel = viewModel()) {
+fun AuthScreen(viewModel: AuthViewModel = viewModel() ,navController: NavController) {
 
     val email = viewModel.email
     val password = viewModel.password
     val message = viewModel.message
     val isLoading = viewModel.isLoading
+
 
     Column(
         modifier = Modifier
@@ -56,11 +58,13 @@ fun AuthScreen(viewModel: AuthViewModel = viewModel()) {
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-        val navController = rememberNavController()
-
         Button(
             onClick = {
-                viewModel.login { navController.navigate("FoodsOrderScreen")}
+                viewModel.login {
+                    navController.navigate("FoodsOrderScreen"){
+                        popUpTo("login") { inclusive = true }
+                    }
+                }
             },
             modifier = Modifier.fillMaxWidth(),
             enabled = !isLoading
