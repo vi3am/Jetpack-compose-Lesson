@@ -48,14 +48,14 @@ fun LazyVertcalGridScreen(){
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {AppTopBar("LazyVirticalScreen")}
-    ) {_ ->
-        VerticalGridScreen()
+    ) {padding->
+        VerticalGridScreen(modifier = Modifier.padding(padding))
     }
 
 }
 
 @Composable
-fun VerticalGridScreen(){
+fun VerticalGridScreen(modifier: Modifier = Modifier){
     Text(text = "LazyVerticalGrid",
         fontSize = 24.sp,
         fontWeight = FontWeight(600),
@@ -73,7 +73,7 @@ fun VerticalGridScreen(){
             var card = cardList[index]
             Card(
                 modifier = Modifier
-                    .fillMaxSize(),
+                    .fillMaxWidth(),
                 shape = RoundedCornerShape(8.dp),
                 elevation = CardDefaults.cardElevation(6.dp) // shadow/elevation
             ) {

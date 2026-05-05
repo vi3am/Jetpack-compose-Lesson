@@ -37,6 +37,7 @@ class EcomViewModel : ViewModel(){
         }
     }
 
+
     //Declear state
     data class EcommState(
         val loading: Boolean = true,

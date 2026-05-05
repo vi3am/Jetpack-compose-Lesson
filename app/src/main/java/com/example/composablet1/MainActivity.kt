@@ -55,7 +55,8 @@ class MainActivity : ComponentActivity() {
 //                }
 //
 //            }
-            EcommerceScreen()
+//            EcommerceScreen()
+            LazyVertcalGridScreen()
         }
     }
 }

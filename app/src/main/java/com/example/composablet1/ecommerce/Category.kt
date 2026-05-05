@@ -1,5 +1,6 @@
 package com.example.composablet1.ecommerce
 
+import android.R
 import com.google.gson.annotations.SerializedName
 
 
@@ -7,6 +8,8 @@ data class Rating(
     val rate: Double,
     val count: Int
 )
+
+
 data class Categoryz(
     val id: Int,
     val title: String,
@@ -18,3 +21,8 @@ data class Categoryz(
 )
 
 data class CategoriesResponseZ(val categoriesZ: List<Categoryz>)
+
+
+data class click(
+    val isClicked : Boolean
+)

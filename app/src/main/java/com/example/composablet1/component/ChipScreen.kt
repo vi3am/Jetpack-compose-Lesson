@@ -14,12 +14,20 @@ import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
+import androidx.compose.material3.InputChip
+import androidx.compose.material3.InputChipDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
@@ -48,6 +56,36 @@ fun ChipScreen(){
                     )
                 }
             }
+            LazyRow(
+                modifier = Modifier.fillMaxWidth(),
+                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                items(chipList.size){index ->
+                    val chip = chipList[index]
+                    FilterChipEx(
+                        labelText = chip.labelText
+                    )
+                }
+            }
+
+            LazyRow(
+                modifier = Modifier.fillMaxWidth(),
+                contentPadding = PaddingValues(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                items(chipList.size){i->
+                    val chip = chipList[i]
+                    InputChipEx(
+                        labelText = chip.labelText,
+                        onDismiss = {
+                            println("Input Clicked")
+                        }
+                    )
+
+                }
+            }
+
         }
     }
 }
@@ -79,6 +117,70 @@ fun AssistChipEx(
         }
 
     )
+}
+
+
+
+@Composable
+fun FilterChipEx(
+    labelText: String
+){
+
+    var selected by remember { mutableStateOf(false) }
+    FilterChip(
+        selected = selected,
+        onClick = {
+            selected = !selected
+        },
+        label = {
+            Text(
+                text = labelText
+            )
+        },
+        leadingIcon = {
+            if (selected) {
+                Icon(
+                    imageVector = Icons.Default.Check,
+                    contentDescription = null
+                )
+            }else null
+        }
+    )
+}
+
+@Composable
+fun InputChipEx(
+    labelText: String,
+    onDismiss: () -> Unit
+){
+    var enabled by remember { mutableStateOf(true) }
+    if (!enabled) return
+    InputChip(
+        selected = enabled,
+        onClick = {
+            onDismiss()
+            enabled = !enabled},
+        label = {
+            Text(
+                text = labelText
+            )
+        },
+        avatar = {
+            Icon(
+                Icons.Filled.Person,
+                contentDescription = null,
+                modifier = Modifier.size(InputChipDefaults.AvatarSize)
+            )
+        },
+        trailingIcon = {
+            Icon(
+                imageVector = Icons.Default.Close,
+                contentDescription = null,
+                modifier = Modifier.size(InputChipDefaults.AvatarSize)
+            )
+        }
+    )
+
 }
 
 @Preview(showBackground = false)
