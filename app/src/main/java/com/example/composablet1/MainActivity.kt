@@ -15,6 +15,8 @@ import com.example.composablet1.appRoom.data.ContactDao
 import com.example.composablet1.appRoom.data.ContactDatabase
 import com.example.composablet1.appRoom.data.ContactScreen
 import com.example.composablet1.appRoom.data.ContactViewModel
+import com.example.composablet1.component.DatePickerScreen
+import com.example.composablet1.component.DialogScreen
 import com.example.composablet1.ecommerce.EcommerceScreen
 import kotlin.getValue
 
@@ -42,11 +44,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val state by viewModel.state.collectAsState()
-            ContactScreen(
-                state = state,
-                onEvent = viewModel::onEvent
-            ) 
+//            val state by viewModel.state.collectAsState()
+//            ContactScreen(
+//                state = state,
+//                onEvent = viewModel::onEvent
+//            )
+
+//            DatePickerScreen()
+            DialogScreen()
         }
     }
 }
