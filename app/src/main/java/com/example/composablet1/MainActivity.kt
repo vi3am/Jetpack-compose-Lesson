@@ -11,13 +11,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.room.Room
+import com.example.composablet1.abanotification.screen.AbaNotification
 import com.example.composablet1.appRoom.data.ContactDao
 import com.example.composablet1.appRoom.data.ContactDatabase
 import com.example.composablet1.appRoom.data.ContactScreen
 import com.example.composablet1.appRoom.data.ContactViewModel
+import com.example.composablet1.chipmongbankapp.screen.NotificationScreen
 import com.example.composablet1.component.DatePickerScreen
 import com.example.composablet1.component.DialogScreen
+import com.example.composablet1.component.NavigationBarScreen
 import com.example.composablet1.ecommerce.EcommerceScreen
+import com.example.composablet1.foods.FoodsOrderScreen
 import kotlin.getValue
 
 
@@ -51,7 +55,11 @@ class MainActivity : ComponentActivity() {
 //            )
 
 //            DatePickerScreen()
-            DialogScreen()
+//            DialogScreen()
+//            NavigationBarScreen()
+//            FoodsOrderScreen()
+//            NotificationScreen()
+            AbaNotification()
         }
     }
 }
