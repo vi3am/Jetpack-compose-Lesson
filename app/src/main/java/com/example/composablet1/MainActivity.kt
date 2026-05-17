@@ -20,8 +20,10 @@ import com.example.composablet1.chipmongbankapp.screen.NotificationScreen
 import com.example.composablet1.component.DatePickerScreen
 import com.example.composablet1.component.DialogScreen
 import com.example.composablet1.component.NavigationBarScreen
+import com.example.composablet1.component.NavigationDrawerScreen
 import com.example.composablet1.ecommerce.EcommerceScreen
 import com.example.composablet1.foods.FoodsOrderScreen
+import com.example.composablet1.screen.ScreenLazyHoriz
 import kotlin.getValue
 
 
@@ -59,7 +61,9 @@ class MainActivity : ComponentActivity() {
 //            NavigationBarScreen()
 //            FoodsOrderScreen()
 //            NotificationScreen()
-            AbaNotification()
+            ScreenLazyHoriz()
+//            NavigationDrawerScreen()
+//            AbaNotification()
         }
     }
 }
